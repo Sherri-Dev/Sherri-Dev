@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <!-------------------- Font Awesome Icons --------------------------->
+    <script
+      src="https://kit.fontawesome.com/6e8abed0ab.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-------------------- Google Fonts --------------------------->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Outfit&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./assets/index.4d51c261.js"></script>
+    <link rel="stylesheet" href="./assets/index.1a93f3de.css" />
+  </head>
+
+  <body
+    class="bg-gradient-to-t from-pr to-sc bg-blend-overlay font-['Merriweather'] flex justify-center flex-col flex-grow text-white min-h-screen"
+  >
+    <main
+      class="bg flex justify-center items-center flex-col bg-center bg-cover bg-blend-overlay fade-in w-full max-w-4xl sm:h-full h-screen m-auto p-2 md:rounded md:shadow-md md:shadow-tr relative overflow-x-hidden"
+    >
+      <h1 class="absolute left-[10000px]">
+        Weather App Powered by Open Weather A P I
+      </h1>
+      <header class="fade-in w-full relative mb-3 sm:mb-6">
+        <form id="search-form" role="search">
+          <label for="search-input" class="absolute left-[10000px]"
+            >Enter a new Location</label
+          >
+          <input
+            type="text"
+            id="search-input"
+            role="searchbox"
+            placeholder="Enter Location Here"
+            autocomplete="off"
+            class="font-sans w-full text-white bg-pr/40 p-2 outline-none focus:bg-tr focus:bg-opacity-60 rounded"
+          />
+          <button
+            id="search-weather-btn"
+            title="Submit Location"
+            aria-label="Submit Location"
+            class="absolute top-2.5 right-2.5 text-white hover:text-tr"
+          >
+            <i
+              class="fas fa-search cursor-pointer absolute top-0.5 right-1/2"
+            ></i>
+          </button>
+        </form>
+      </header>
+      <a
+        href="#current-forecast-sect"
+        class="absolute top-[-999px] p-3 focus:top-auto focus:left-auto"
+        >Skip to Current Forecast Section</a
+      >
+      <section
+        id="current-forecast-sect"
+        role="region"
+        aria-labelledby="current-forecast-sect"
+        class="fade-in w-full flex flex-col flex-grow"
+      >
+        <h3 id="current-loc" class="text-center text-tr">Current Conditions</h3>
+        <p
+          id="date"
+          class="text-white/50 text-sm font-['Outfit'] text-center mt-1 sm:mb-6"
+        >
+          Jan 8, 2021
+        </p>
+        <div
+          id="current-forecast"
+          class="w-full flex flex-col flex-grow justify-around sm:flex-row"
+        ></div>
+      </section>
+      <nav
+        class="fade-in flex justify-around sm:w-11/12 w-full m-auto text-lg text-white/70 bg-pr/40 rounded p-2"
+      >
+        <button
+          id="get-loc-btn"
+          title="Current Location Weather"
+          aria-label="Get Weather Conditions for your Current Location"
+          class="focus:text-white -mr-6"
+        >
+          <i class="fas fa-map-marker-alt hover:text-white cursor-pointer"></i>
+        </button>
+        <button
+          id="home-loc-btn"
+          title="Home Location Weather"
+          aria-label="Get the Current Weather Conditions for your Home Location"
+          class="focus:text-white -mr-6"
+        >
+          <i class="fas fa-home hover:text-white cursor-pointer"></i>
+        </button>
+        <button
+          id="save-loc-btn"
+          title="Save Location"
+          aria-label="Save the Current Location as your Home Location"
+          class="focus:text-white -mr-6"
+        >
+          <i class="fas fa-save hover:text-white cursor-pointer"></i>
+        </button>
+        <button
+          id="toggle-units-btn"
+          title="Toggle Units"
+          aria-label="Toggle between metric and imperial units"
+          class="focus:text-white -mr-6"
+        >
+          <i class="fas fa-sliders-h hover:text-white cursor-pointer"></i>
+        </button>
+        <button
+          id="refresh-weather-btn"
+          title="Refresh Weather"
+          aria-label="Refresh the Current Weather Conditions"
+          class="focus:text-white -mr-6"
+        >
+          <i class="fas fa-sync-alt hover:text-white cursor-pointer"></i>
+        </button>
+      </nav>
+      <a
+        href="#weekly-forecast-sect"
+        class="absolute top-[-999px] p-3 focus:top-auto focus:left-auto"
+        >Skip to Weekly Forecast Section</a
+      >
+      <section
+        id="weekly-forecast-sect"
+        role="region"
+        aria-labelledby="Weekly Weather"
+        class="fade-in w-full grid grid-cols-7 flex-grow justify-evenly text-sm font-['Outfit'] text-center items-center mb-4"
+      ></section>
+      <p
+        id="confirmation"
+        aria-
+        aria-live="assertive"
+        class="absolute left-[10000px]"
+      ></p>
+    </main>
+  </body>
+</html>

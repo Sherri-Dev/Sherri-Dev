@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeIn 1.5s ease-in 0s 1;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+html {
+  font-size: 16px;
+}
+.bg-sun {
+  background-color: rgba(5, 5, 31, 0.85);
+  background-image: url("../Images/sun.jpg");
+}
+.bg-partly-cloudy {
+  background-color: rgba(5, 5, 31, 0.9);
+  background-image: url("../Images/partly-cloudy.jpg");
+}
+.bg-clouds {
+  background-color: rgba(5, 5, 31, 0.9);
+  background-image: url("../Images/clouds.jpg");
+}
+.bg-rain {
+  background-color: rgba(5, 5, 31, 0.9);
+  background-image: url("../Images/rain.gif");
+}
+.bg-thunder {
+  background-color: rgba(5, 5, 31, 0.9);
+  background-image: url("../Images/thunder.gif");
+}
+.bg-fog {
+  background-color: rgba(5, 5, 31, 0.9);
+  background-image: url("../Images/fog.jpg");
+}
+.bg-snow {
+  background-color: rgba(5, 5, 31, 0.9);
+  background-image: url("../Images/snow.jpg");
+}
+.bg-night {
+  background-color: rgba(3, 73, 18, 0.9);
+  background-image: url("../Images/night.jpg");
+}
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 13px;
+  }
+}
