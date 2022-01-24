@@ -57,6 +57,7 @@
         class="absolute top-[-999px] p-3 focus:top-auto focus:left-auto"
         >Skip to Current Forecast Section</a
       >
+
       <section
         id="current-forecast-sect"
         role="region"
@@ -72,11 +73,42 @@
         </p>
         <div
           id="current-forecast"
-          class="w-full flex justify-center flex-col flex-grow sm:justify-evenly sm:flex-row"
+          class="w-full flex flex-col flex-grow justify-evenly sm:flex-row"
         ></div>
       </section>
+
+      <a
+        href="#hourly-forecast-sect"
+        class="absolute top-[-999px] p-3 focus:top-auto focus:left-auto"
+        >Skip to Weekly Forecast Section</a
+      >
+      <section
+        id="hourly-forecast-sect"
+        class="flex w-11/12 overflow-x-auto mb-2"
+      >
+        <!-- <div class="grid grid-cols-12 gap-x-4 font-['Out-fit']">
+          <span>1AM</span><span>2AM</span><span>3AM</span><span>4AM</span
+          ><span>5AM</span><span>6AM</span><span>7AM</span><span>8AM</span
+          ><span>9AM</span><span>10AM</span><span>11AM</span><span>12AM</span>
+          <img
+            src="http://openweathermap.org/img/wn/04d@2x.png"
+            alt=""
+            class="h-16 w-16"
+          />
+        </div>
+        <div class="grid grid-cols-12 gap-x-4 font-['Out-fit']">
+          <span>1PM</span><span>2PM</span><span>3PM</span><span>4PM</span
+          ><span>5PM</span><span>6PM</span><span>7PM</span><span>8PM</span
+          ><span>9PM</span><span>10PM</span><span>11PM</span><span>12PM</span>
+        </div> -->
+      </section>
+      <a
+        href="#weekly-forecast-sect"
+        class="absolute top-[-999px] p-3 focus:top-auto focus:left-auto"
+        >Skip to Weekly Forecast Section</a
+      >
       <nav
-        class="fade-in flex justify-around sm:w-11/12 w-full m-auto text-lg text-white/70 bg-pr/40 rounded p-2"
+        class="fade-in flex justify-around sm:w-11/12 w-full m-auto text-2xl sm:text-lg text-white/70 bg-pr/40 rounded p-2 order-last sm:order-none"
       >
         <button
           id="get-loc-btn"
@@ -119,17 +151,16 @@
           <i class="fas fa-sync-alt hover:text-white cursor-pointer"></i>
         </button>
       </nav>
-      <a
-        href="#weekly-forecast-sect"
-        class="absolute top-[-999px] p-3 focus:top-auto focus:left-auto"
-        >Skip to Weekly Forecast Section</a
-      >
-      <section
-        id="weekly-forecast-sect"
-        role="region"
-        aria-labelledby="Weekly Weather"
-        class="fade-in w-full grid grid-cols-7 flex-grow justify-evenly text-sm font-['Outfit'] text-center items-center mb-4 invisible"
-      ></section>
+      <details class="w-11/12 bg-sc/50 p-2 m-2 rounded">
+        <summary class="cursor-pointer">Weekly Forecast</summary>
+        <section
+          id="weekly-forecast-sect"
+          role="region"
+          aria-labelledby="Weekly Weather"
+          class="fade-in sweep-in w-full grid grid-cols-7 flex-grow justify-evenly text-sm font-['Outfit'] text-center items-center mb-4 invisible"
+        ></section>
+      </details>
+
       <p
         id="confirmation"
         aria-

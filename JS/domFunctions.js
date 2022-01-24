@@ -40,14 +40,15 @@ export const updateScr = (msg) =>
   (document.getElementById("confirmation").textContent = msg);
 
 /************UPDATE DISPLAY**************/
-export const updateDisplay = (cfsect, wfsect, locObj, weatherObj) => {
-  let iconLength = window.innerWidth > 250 ? "@2x" : "";
+export const updateDisplay = (cfsect, hfsect, wfsect, locObj, weatherObj) => {
+  let iconSize = window.innerWidth > 250 ? "@2x" : "";
   const currentForeCast = cfsect.querySelector("#current-forecast");
   fadeData(cfsect, wfsect);
   clearData(currentForeCast, wfsect);
   setBgImg(document.querySelector("main"), weatherObj);
-  createCurrentHtml(cfsect, currentForeCast, iconLength, locObj, weatherObj);
-  createWeeklyHtml(wfsect, iconLength, weatherObj);
+  createCurrentHtml(cfsect, currentForeCast, iconSize, locObj, weatherObj);
+  createHourlyHtml(hfsect, iconSize, locObj, weatherObj);
+  createWeeklyHtml(wfsect, iconSize, weatherObj);
   fadeData(cfsect, wfsect);
 };
 const fadeData = (...arr) => {
@@ -168,25 +169,25 @@ const createContentDiv = (locObj, weatherObj) => {
     `The Temperture is ${temp} ${tempUnit},wind speed is ${speed} ${windUnit} and humidity is ${humidity}% in ${locObj.getName()}`
   );
   const text = ` <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3 text-center"
+  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3"
 >
   <p class="text-white/50 sm:mr-3">Temp</p>
   <p id="temp-val">${temp} ${tempUnit}</p>
 </div>
 <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3 text-center hidden"
+  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3 hidden"
 >
   <p class="text-white/50 sm:mr-3">Feels Like</p>
   <p id="feels-val">${feels} ${tempUnit}</p>
 </div>
 <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3 text-center"
+  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3"
 >
   <p class="text-white/50 sm:mr-3">Wind</p>
   <p id="wind-speed">${speed} ${windUnit}</p>
 </div>
 <div
-  class="w-full sm:flex sm:items-center gap-3 text-center"
+  class="w-full sm:flex sm:items-center gap-3"
 >
   <p class="text-white/50 sm:mr-3">Humidity</p>
   <p id="hum-level">${humidity}%</p>
@@ -201,28 +202,25 @@ const createContentDiv = (locObj, weatherObj) => {
 //Display weekly weather
 const createWeeklyHtml = (wfsect, iconSize, weatherObj) => {
   const num = 7;
+  const dailyWeather = weatherObj.daily;
+  let iconsArr = dailyWeather.map((day) => day.weather[0]);
   wfsect.innerHTML =
-    createWeeklyContent(
+    createContent(num, "div", getDay(), getClasses(`class = text-tr`, num)) +
+    createContent(num, "img", "", getIcon(iconsArr, iconSize, "w-24 m-auto")) +
+    createContent(
       num,
-      "div",
-      getDay(),
-      getClasses(`class = text-tr`, num)
-    ) +
-    createWeeklyContent(num, "img", "", getIcon(weatherObj, iconSize)) +
-    createWeeklyContent(
-      num,
-      "small",
+      "span",
       getTemp(weatherObj, "min"),
       getClasses(' class="tracking-widest ml-2"', num)
     ) +
-    createWeeklyContent(
+    createContent(
       num,
-      "small",
+      "span",
       getTemp(weatherObj, "max"),
       getClasses(' class="tracking-widest ml-2"', num)
     );
 };
-const createWeeklyContent = (num, type, text, attrArr) => {
+const createContent = (num, type, text, attrArr) => {
   let html = "";
   for (let i = 0; i < num; i++) {
     html += createEl(type, text[i], attrArr[i]);
@@ -241,13 +239,11 @@ const getDay = () => {
   }
   return newDaysArr;
 };
-const getIcon = (weatherObj, iconSize) => {
-  const dailyWeather = weatherObj.daily;
-  let iconsArr = dailyWeather.map((day) => day.weather[0]);
+const getIcon = (iconsArr, iconSize, classes) => {
   let attrArr = [];
   for (let i = 0; i < iconsArr.length; i++) {
     attrArr.push(
-      `src = 'http://openweathermap.org/img/wn/${iconsArr[i].icon}${iconSize}.png' alt = '${iconsArr[i].description}' class = 'w-24 m-auto'`
+      `src = 'http://openweathermap.org/img/wn/${iconsArr[i].icon}${iconSize}.png' alt = '${iconsArr[i].description}' class = '${classes}'`
     );
   }
   return attrArr;
@@ -266,4 +262,52 @@ const getClasses = (classes, num) => {
     classesArr.push(classes);
   }
   return classesArr;
+};
+//Display hourly weather
+const createHourlyHtml = (hfsect, iconSize, locObj, weatherObj) => {
+  hfsect.innerHTML = create12HoursHtml(0, 12, iconSize, weatherObj);
+};
+const create12HoursHtml = (iconNum, iconEnd, iconSize, weatherObj) => {
+  const num = 12;
+  const hourlyWeather = weatherObj.hourly;
+  let iconsArr = [];
+  for (let i = iconNum; i < iconEnd; i++) {
+    iconsArr.push(hourlyWeather[i].weather[0]);
+  }
+  const hoursContent =
+    createContent(
+      num,
+      "span",
+      getHours(hourlyWeather),
+      getClasses("class = text-tr", num)
+    ) + createContent(num, "img", "", getIcon(iconsArr, iconSize, "h-16 w-16"));
+  return createEl(
+    "div",
+    hoursContent,
+    `class = "grid grid-cols-12 gap-x-4 font-['Out-fit'] text-center"`
+  );
+};
+const getHours = (hourlyWeather) => {
+  let hoursArr = [];
+  let h = new Date().getHours();
+  h = h > 12 ? h % 12 : h;
+  let relay = "";
+  hourlyWeather.forEach((hour) => (relay = hour.weather[0].icon.slice(2)));
+  let ampm = relay === "d" ? "am" : "pm";
+  let newH = 0;
+  for (let i = 1; i < 13; i++) {
+    newH = h + i;
+    ampm = newH >= 12 ? "pm" : "am";
+    if (newH > 12) {
+      for (let j = 1; j < 13; j++) {
+        newH = j;
+        hoursArr.push(newH + ampm);
+      }
+    } else if (newH > 12) {
+      ampm = relay === "d" ? "am" : "pm";
+    } else {
+      hoursArr.push(newH + ampm);
+    }
+  }
+  return hoursArr;
 };

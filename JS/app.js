@@ -10,6 +10,7 @@ const refreshBtn = document.getElementById("refresh-weather-btn");
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 const currentForeCastSection = document.getElementById("current-forecast-sect");
+const hourlyForeCastSection = document.getElementById("hourly-forecast-sect");
 const weeklyForeCastSection = document.getElementById("weekly-forecast-sect");
 /************************** IMPORTS *************************/
 import {
@@ -130,6 +131,7 @@ const updateAndDisplay = async (location) => {
   if (weatherData)
     updateDisplay(
       currentForeCastSection,
+      hourlyForeCastSection,
       weeklyForeCastSection,
       currentLoc,
       weatherData

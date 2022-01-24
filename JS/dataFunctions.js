@@ -23,7 +23,7 @@ export const getWeather = async (location) => {
   const lat = location.getLat();
   const lon = location.getLong();
   const units = location.getUnit();
-  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts,&units=${units}&appid=${API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts,&units=${units}&appid=${API_KEY}`;
   return await fetch(url)
     .then((res) => res.json())
     .catch((err) => console.log(err));
