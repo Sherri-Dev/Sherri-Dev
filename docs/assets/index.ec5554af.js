@@ -441,6 +441,6 @@ const he = async (e) => {
   };
 "serviceWorker" in navigator &&
   navigator.serviceWorker
-    .register("../serviceWorker.js")
+    .register("../../serviceWorker.js")
     .then(() => console.log("registered"))
     .catch((e) => console.log(e));
