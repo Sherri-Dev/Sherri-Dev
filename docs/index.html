@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Modern PWA Weather React Application" />
+    <link rel="icon" type="image/png" href="/assets/logo.bf46471d.png" />
+    <link rel="apple-touch-icon" href="/assets/logo.bf46471d.png" />
+    <link rel="manifest" href="manifest.json" />
     <title>Weather App</title>
 
     <!-------------------- Font Awesome Icons --------------------------->
@@ -16,8 +21,8 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather&family=Outfit&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="./assets/index.3b9f90c8.js"></script>
-    <link rel="stylesheet" href="./assets/index.7f40dfbc.css" />
+    <script type="module" crossorigin src="/assets/index.ec5554af.js"></script>
+    <link rel="stylesheet" href="/assets/index.29774106.css" />
   </head>
 
   <body
@@ -40,7 +45,7 @@
             role="searchbox"
             placeholder="Enter Location Here"
             autocomplete="off"
-            class="font-sans w-full text-white bg-pr/40 p-2 outline-none focus:bg-tr focus:bg-opacity-60 rounded"
+            class="font-sans w-full text-white bg-pr/40 text-lg p-2 outline-none focus:bg-tr focus:bg-opacity-60 rounded"
           />
           <button
             id="search-weather-btn"
@@ -75,7 +80,7 @@
         </p>
         <div
           id="current-forecast"
-          class="w-full flex flex-col flex-grow justify-evenly sm:flex-row sm:my-6"
+          class="w-full flex flex-col flex-grow justify-evenly sm:flex-row"
         ></div>
       </section>
 
@@ -87,7 +92,23 @@
       <section
         id="hourly-forecast-sect"
         class="flex w-11/12 overflow-x-auto mb-2"
-      ></section>
+      >
+        <!-- <div class="grid grid-cols-12 gap-x-4 font-['Out-fit']">
+          <span>1AM</span><span>2AM</span><span>3AM</span><span>4AM</span
+          ><span>5AM</span><span>6AM</span><span>7AM</span><span>8AM</span
+          ><span>9AM</span><span>10AM</span><span>11AM</span><span>12AM</span>
+          <img
+            src="http://openweathermap.org/img/wn/04d@2x.png"
+            alt=""
+            class="h-16 w-16"
+          />
+        </div>
+        <div class="grid grid-cols-12 gap-x-4 font-['Out-fit']">
+          <span>1PM</span><span>2PM</span><span>3PM</span><span>4PM</span
+          ><span>5PM</span><span>6PM</span><span>7PM</span><span>8PM</span
+          ><span>9PM</span><span>10PM</span><span>11PM</span><span>12PM</span>
+        </div> -->
+      </section>
       <a
         href="#weekly-forecast-sect"
         class="absolute top-[-999px] p-3 focus:top-auto focus:left-auto"

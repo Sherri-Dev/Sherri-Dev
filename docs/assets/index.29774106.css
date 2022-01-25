@@ -367,9 +367,6 @@ video {
   -moz-column-gap: 1rem;
   column-gap: 1rem;
 }
-.gap-3 {
-  gap: 0.75rem;
-}
 .overflow-x-auto {
   overflow-x: auto;
 }
@@ -424,6 +421,10 @@ video {
 }
 .font-\[\'Out-fit\'\] {
   font-family: Out-fit;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .text-sm {
   font-size: 0.875rem;
@@ -505,35 +506,35 @@ html {
 }
 .bg-sun {
   background-color: #05051fd9;
-  background-image: url(./sun.d585764e.jpg);
+  background-image: url(/assets/sun.d585764e.jpg);
 }
 .bg-partly-cloudy {
   background-color: #05051fe6;
-  background-image: url(./partly-cloudy.d0a08c53.jpg);
+  background-image: url(/assets/partly-cloudy.d0a08c53.jpg);
 }
 .bg-clouds {
   background-color: #05051fe6;
-  background-image: url(./clouds.813b88e6.jpg);
+  background-image: url(/assets/clouds.813b88e6.jpg);
 }
 .bg-rain {
   background-color: #05051fe6;
-  background-image: url(./rain.3f8c0695.gif);
+  background-image: url(/assets/rain.3f8c0695.gif);
 }
 .bg-thunder {
   background-color: #05051fe6;
-  background-image: url(./thunder.82561a73.gif);
+  background-image: url(/assets/thunder.82561a73.gif);
 }
 .bg-fog {
   background-color: #05051fe6;
-  background-image: url(./fog.9d41f481.jpg);
+  background-image: url(/assets/fog.9d41f481.jpg);
 }
 .bg-snow {
   background-color: #05051fe6;
-  background-image: url(./snow.17d40059.jpg);
+  background-image: url(/assets/snow.17d40059.jpg);
 }
 .bg-night {
   background-color: #034912e6;
-  background-image: url(./night.6e5df6e0.jpg);
+  background-image: url(/assets/night.6e5df6e0.jpg);
 }
 @media only screen and (max-width: 600px) {
   html {
@@ -593,6 +594,9 @@ html {
 @media (min-width: 640px) {
   .sm\:order-none {
     order: 0;
+  }
+  .sm\:mr-3 {
+    margin-right: 0.75rem;
   }
   .sm\:mb-6 {
     margin-bottom: 1.5rem;

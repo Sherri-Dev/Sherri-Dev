@@ -142,3 +142,10 @@ const updateAndDisplay = async (location) => {
       "Connection Error: Data could not be fetched!"
     );
 };
+/**************** REGISTER SERVICE WORKER *******************/
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("../serviceWorker.js")
+    .then(() => console.log("registered"))
+    .catch((err) => console.log(err));
+}

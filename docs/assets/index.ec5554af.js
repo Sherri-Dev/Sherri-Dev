@@ -77,20 +77,20 @@ const b = "3b7063f28420455f0dbbd89456bd67d5",
     const t = Array.from(e.classList),
       n = t.slice(0);
     n.splice(1, 2, "fa-circle-notch fa-spin text-tr"),
-      H(e, n),
-      setTimeout(() => H(e, t), 1e3);
+      k(e, n),
+      setTimeout(() => k(e, t), 1e3);
   },
-  H = (e, t) => {
+  k = (e, t) => {
     e.className = t.toString().replace(/[,]/g, " ");
   },
-  v = (e, t) => {
+  $ = (e, t) => {
     x(e), w(t);
   },
   z = (e) => {
-    const t = A(e.message);
+    const t = H(e.message);
     x(t), w(t);
   },
-  A = (e) =>
+  H = (e) =>
     e
       .split(" ")
       .map((t) => t.slice(0, 1).toUpperCase() + t.slice(1))
@@ -100,15 +100,15 @@ const b = "3b7063f28420455f0dbbd89456bd67d5",
   _ = (e, t, n, s, o) => {
     let r = window.innerWidth > 250 ? "@2x" : "";
     const c = e.querySelector("#current-forecast");
-    B(e, n),
+    A(e, n),
       K(c, n),
       Y(document.querySelector("main"), o),
       Z(e, c, r, s, o),
       ee(t, r, s, o),
       O(n, r, o),
-      B(e, n);
+      A(e, n);
   },
-  B = (...e) => {
+  A = (...e) => {
     e.forEach((t) => {
       t.classList.toggle("fade-in"), t.classList.toggle("invisible");
     });
@@ -178,7 +178,7 @@ const b = "3b7063f28420455f0dbbd89456bd67d5",
     return `${e[t.getMonth()]} ${t.getDate()}, ${t.getFullYear()}`;
   },
   V = (e, t) => {
-    const n = A(e.current.weather[0].description),
+    const n = H(e.current.weather[0].description),
       s = e.current.weather[0].icon,
       o = u(
         "img",
@@ -201,25 +201,25 @@ const b = "3b7063f28420455f0dbbd89456bd67d5",
       `The Temperture is ${n} ${s},wind speed is ${c} ${o} and humidity is ${l}% in ${e.getName()}`
     );
     const f = ` <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center text-center gap-3"
+  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3"
 >
   <p class="text-white/50 sm:mr-3">Temp</p>
   <p id="temp-val">${n} ${s}</p>
 </div>
 <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center text-center gap-3 hidden"
+  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3 hidden"
 >
   <p class="text-white/50 sm:mr-3">Feels Like</p>
   <p id="feels-val">${r} ${s}</p>
 </div>
 <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center text-center gap-3"
+  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3"
 >
   <p class="text-white/50 sm:mr-3">Wind</p>
   <p id="wind-speed">${c} ${o}</p>
 </div>
 <div
-  class="w-full sm:flex sm:items-center text-center gap-3"
+  class="w-full sm:flex sm:items-center gap-3"
 >
   <p class="text-white/50 sm:mr-3">Humidity</p>
   <p id="hum-level">${l}%</p>
@@ -235,7 +235,7 @@ const b = "3b7063f28420455f0dbbd89456bd67d5",
     let r = n.daily.map((c) => c.weather[0]);
     e.innerHTML =
       m(s, "div", j(), C("class = text-tr", s)) +
-      m(s, "img", "", k(r, t, "w-24 m-auto")) +
+      m(s, "img", "", B(r, t, "w-24 m-auto")) +
       m(s, "span", N(n, "min"), C(' class="tracking-widest ml-2"', s)) +
       m(s, "span", N(n, "max"), C(' class="tracking-widest ml-2"', s));
   },
@@ -252,7 +252,7 @@ const b = "3b7063f28420455f0dbbd89456bd67d5",
     for (let s = 0; s < t; s++) n.push(e[s]);
     return n;
   },
-  k = (e, t, n) => {
+  B = (e, t, n) => {
     let s = [];
     for (let o = 0; o < e.length; o++)
       s.push(
@@ -282,7 +282,7 @@ const b = "3b7063f28420455f0dbbd89456bd67d5",
     for (let f = e; f < t; f++) c.push(r[f].weather[0]);
     const l =
       m(o, "span", ne(r), C("class = text-tr", o)) +
-      m(o, "img", "", k(c, n, "h-16 w-16"));
+      m(o, "img", "", B(c, n, "h-16 w-16"));
     return u(
       "div",
       l,
@@ -372,8 +372,8 @@ const oe = document.querySelectorAll("button"),
       re.addEventListener("click", () => U()),
       ce.addEventListener("click", () => F()),
       ie.addEventListener("click", Le),
-      ae.addEventListener("click", $e),
-      le.addEventListener("click", () => $(i)),
+      ae.addEventListener("click", ve),
+      le.addEventListener("click", () => v(i)),
       q(I),
       F();
   };
@@ -390,9 +390,9 @@ const he = async (e) => {
           n.coord.lat,
           n.coord.lon
         );
-        E(i, s), $(i), (I.value = "");
+        E(i, s), v(i), (I.value = "");
       } else z(n);
-    else v("Connection Error", "Connection Error");
+    else $("Connection Error", "Connection Error");
   },
   U = () => {
     navigator.geolocation.getCurrentPosition(fe, ye);
@@ -403,20 +403,20 @@ const he = async (e) => {
       e.coords.latitude,
       e.coords.longitude
     );
-    E(i, t), $(i);
+    E(i, t), v(i);
   },
-  ye = (e) => v(e.message, e.message),
+  ye = (e) => $(e.message, e.message),
   F = (e) => {
     let t = JSON.parse(localStorage.getItem("HomeLocation"));
     if (!t && !e) return U();
     if (!t && e.type === "click")
-      v(
+      $(
         "No Home Location Saved",
         "No Home Location Saved.Please Save a location first."
       );
     else {
       const n = new S(t.name, t.lat, t.long, t.unit);
-      E(i, n), $(i);
+      E(i, n), v(i);
     }
   },
   Le = () => {
@@ -429,13 +429,18 @@ const he = async (e) => {
     localStorage.setItem("HomeLocation", JSON.stringify(e)),
       w(`${e.name} is saved as your home location.`);
   },
-  $e = () => {
-    i.toggleUnit(i.getUnit()), $(i);
+  ve = () => {
+    i.toggleUnit(i.getUnit()), v(i);
   },
-  $ = async (e) => {
+  v = async (e) => {
     const t = await P(e);
     console.log(t),
       t
         ? _(ue, me, ge, i, t)
-        : v("Connection Error", "Connection Error: Data could not be fetched!");
+        : $("Connection Error", "Connection Error: Data could not be fetched!");
   };
+"serviceWorker" in navigator &&
+  navigator.serviceWorker
+    .register("../serviceWorker.js")
+    .then(() => console.log("registered"))
+    .catch((e) => console.log(e));
