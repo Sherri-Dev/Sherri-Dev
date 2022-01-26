@@ -201,25 +201,25 @@ const b = "3b7063f28420455f0dbbd89456bd67d5",
       `The Temperture is ${n} ${s},wind speed is ${c} ${o} and humidity is ${l}% in ${e.getName()}`
     );
     const f = ` <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3"
+  class="w-full sm:flex sm:justify-evenly sm:items-center text-center gap-3"
 >
   <p class="text-white/50 sm:mr-3">Temp</p>
   <p id="temp-val">${n} ${s}</p>
 </div>
 <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3 hidden"
+  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3 text-center hidden"
 >
   <p class="text-white/50 sm:mr-3">Feels Like</p>
   <p id="feels-val">${r} ${s}</p>
 </div>
 <div
-  class="w-full sm:flex sm:justify-evenly sm:items-center gap-3"
+  class="w-full sm:flex sm:justify-evenly sm:items-center text-center gap-3"
 >
   <p class="text-white/50 sm:mr-3">Wind</p>
   <p id="wind-speed">${c} ${o}</p>
 </div>
 <div
-  class="w-full sm:flex sm:items-center gap-3"
+  class="w-full sm:flex sm:items-center gap-3 text-center"
 >
   <p class="text-white/50 sm:mr-3">Humidity</p>
   <p id="hum-level">${l}%</p>
